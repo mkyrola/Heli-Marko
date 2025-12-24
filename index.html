@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="fi" data-gift-url="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Heli ♥ Marko — Ikuisesti sinun</title>
+  <meta name="description" content="Joulukortti ja lahjakortti-ilta: Pokka pitää 27.12.2025 klo 18." />
+
+
+  <style>
+    :root{
+      --ink:#1f2328;
+      --muted:#5f6b7a;
+      --paper:#fbf7f0;
+      --paper2:#ffffff;
+      --line:rgba(31,35,40,.12);
+      --accent:#9b2c2c;
+      --shadow: 0 18px 50px rgba(0,0,0,.14);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(155,44,44,.10), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(31,35,40,.10), transparent 55%),
+        linear-gradient(180deg, var(--paper), #f4efe6);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .card{
+      width:min(980px, 100%);
+      background: linear-gradient(180deg, var(--paper2), #fffaf2);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .topbar{
+      padding:18px 22px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      background: linear-gradient(90deg, rgba(155,44,44,.06), transparent 50%);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:999px;background:var(--accent);
+      box-shadow: 0 0 0 4px rgba(155,44,44,.12);
+    }
+    .actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    button{
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-size:13px;
+    }
+    button:hover{border-color:rgba(31,35,40,.22)}
+    .content{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:0;
+    }
+    @media (max-width: 820px){
+      .content{grid-template-columns:1fr}
+    }
+    .left{
+      padding:34px 34px 26px 34px;
+    }
+    .right{
+      padding:34px;
+      border-left:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(155,44,44,.04), transparent 45%);
+    }
+    @media (max-width: 820px){
+      .right{border-left:none; border-top:1px solid var(--line)}
+    }
+    h1{
+      margin:0 0 10px 0;
+      font-size: clamp(34px, 4vw, 54px);
+      line-height:1.06;
+      letter-spacing:.2px;
+    }
+    .heart{
+      color:var(--accent);
+      font-weight:600;
+      padding:0 .22em;
+    }
+    .subtitle{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--muted);
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+    .note{
+      border-left:4px solid rgba(155,44,44,.35);
+      background: rgba(155,44,44,.05);
+      padding:14px 16px;
+      border-radius:14px;
+      margin:18px 0 22px 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--ink);
+    }
+    .note b{color:var(--accent)}
+    .section{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+    .section h2{
+      margin:0 0 10px 0;
+      font-size:18px;
+      letter-spacing:.2px;
+    }
+    .section p{
+      margin:0;
+      font-size:16px;
+      line-height:1.6;
+      color:var(--ink);
+    }
+    .muted{
+      color:var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .event{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .pill{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(255,255,255,.75);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-size: 14px;
+    }
+    .pill strong{font-weight:700}
+    .qrWrap{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:flex-start;
+    }
+    #qrcode{
+      width: 190px;
+      height: 190px;
+      padding: 12px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+    .urlBox{
+      width:100%;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.8);
+      padding:12px 14px;
+      border-radius:14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      font-size:12px;
+      word-break:break-all;
+    }
+    .warn{ color: #9b2c2c; font-weight:700; }
+    .sig{
+      margin-top:18px;
+      font-size:18px;
+    }
+    .sig .small{
+      display:block;
+      margin-top:6px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--muted);
+      font-size: 13px;
+    }
+
+    /* Print */
+    @media print{
+      body{background:#fff; padding:0}
+      .topbar, .actions{display:none !important}
+      .card{box-shadow:none; border:none; border-radius:0}
+      .content{grid-template-columns:1fr 1fr}
+      #qrcode{width: 230px; height: 230px}
+      .right{background:#fff}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="card" role="main" aria-label="Joulukortti Helille">
+    <div class="topbar">
+      <div class="badge">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Joulukortti • 27.12.2025 klo 18</span>
+      </div>
+      <div class="actions">
+        <button type="button" onclick="window.print()">Tulosta</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <section class="left">
+        <h1>
+          Heli <span class="heart">♥</span> Marko
+        </h1>
+        <div class="subtitle">Ikuisesti sinun. Valitsisin sinut aina.</div>
+
+        <div class="note">
+          <b>Lauantaina 27.12.2025</b> klo <b>18:00</b> mennään yhdessä nauramaan:
+          <div style="margin-top:10px; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+            <strong>POKKA PITÄÄ</strong> (Keeping Up Appearances) — Hyacinth Bucket (lausutaan "Bukee").
+          </div>
+          <div class="muted" style="margin-top:8px;">
+            Lastenhoito on järjestetty. Syödään ennen tai jälkeen esityksen — minä varaan, sinä päätät fiiliksen.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Miksi juuri 27.12?</h2>
+          <p>
+            Se on meidän <b>28,5 vuotis-hääpäivämme</b> — tasan puolivuotta 29 vuodesta siitä kun sanoimme "tahdon".
+            Haluan juhlistaa sitä tekemällä jotain erikoista, vain meidän kahden.
+          </p>
+          <p style="margin-top:12px;">
+            Haluan olla sinulle enemmän <i>läsnä</i> — en vain kiireinen.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>Pieni lupaus</h2>
+          <p>
+            Minä pidän tästä kiinni: varaan meille hookupit ja vapautan kalenteria,
+            jotta meillä on aikaa olla <b>me</b>.
+          </p>
+
+          <div class="sig">
+            — Marko
+            <span class="small">PS. Kun skannaat QR-koodin, tämä kortti avautuu puhelimeesi.</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Esitystiedot</h2>
+          <div class="event">
+            <div class="pill"><strong>Päivä</strong> <span>La 27.12.2025</span></div>
+            <div class="pill"><strong>Aika</strong> <span>klo 18:00</span></div>
+            <div class="pill"><strong>Ohjelma</strong> <span>Pokka pitää (Keeping Up Appearances)</span></div>
+          </div>
+          <p class="muted" style="margin-top:10px;">
+            (Voit lisätä tähän vielä paikan / varausnumeron, jos haluat – mutta tämä toimii myös ilman.)
+          </p>
+        </div>
+      </section>
+
+      <aside class="right" aria-label="Romanttinen viesti">
+        <div class="qrWrap">
+          <img src="wedding-rings.png" alt="Vihkisormukset" style="width:100%; max-width:320px; height:auto; border-radius:16px; box-shadow: 0 8px 24px rgba(0,0,0,.12); margin-bottom:22px;">
+          
+          <h2 style="margin:0;">28,5 vuotta yhdessä</h2>
+          <div style="margin-top:18px; font-size:16px; line-height:1.7; font-style:italic; color:var(--ink);">
+            "Rakkaus ei ole vain tunne,<br>
+            se on valinta.<br>
+            Joka päivä.<br>
+            Joka hetki.<br><br>
+            Ja minä valitsen aina sinut."
+          </div>
+          
+          <div style="margin-top:28px; padding:16px; background:rgba(155,44,44,.08); border-radius:14px; border-left:3px solid var(--accent);">
+            <div style="font-size:15px; line-height:1.6; color:var(--ink);">
+              <strong style="color:var(--accent);">Muistatko</strong> kun sanoit että haluaisit enemmän "meitä-aikaa"?
+              <br><br>
+              Tämä on ensimmäinen askel. Ei viimeinen.
+            </div>
+          </div>
+
+          <div class="muted" style="margin-top:24px; font-size:14px; line-height:1.6;">
+            Teatterilipuista hookuuppeihin — teen töitä sen eteen,
+            että meillä on enemmän hetkiä joissa olemme vain <strong>me kaksi</strong>.
+          </div>
+
+          <div style="margin-top:28px; text-align:center; font-size:42px; color:var(--accent);">
+            ♥
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    // Simple print functionality
+    // No QR code needed - this is a personal gift card
+  </script>
+</body>
+</html>
